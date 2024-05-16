@@ -11,7 +11,29 @@ function Navbar() {
     >
       {/* start */}
       <div className="flex gap-2 items-center mr-16">
-        <div className="dropdown lg:hidden flex">
+        <div className="drawer lg:hidden flex z-10">
+          <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content">
+            {/* Page content here */}
+            <label htmlFor="my-drawer" className="drawer-button ">
+              <FiMenu className="text-2xl  mt-2 text-base-content" />
+            </label>
+          </div>
+          <div className="drawer-side">
+            <label
+              htmlFor="my-drawer"
+              aria-label="close sidebar"
+              className="drawer-overlay"
+            ></label>
+            <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content  ">
+              {/* Sidebar content here */}
+              <div className="mt-6">
+                <NavLinks />
+              </div>
+            </ul>
+          </div>
+        </div>
+        {/* <div className="dropdown lg:hidden flex">
           <button tabIndex={0} role="button" className=" m-1">
             <FiMenu className="text-2xl  mt-2 text-base-content" />
           </button>
@@ -21,7 +43,7 @@ function Navbar() {
           >
             <NavLinks />
           </ul>
-        </div>
+        </div> */}
         <Link to="/">
           <h1 className="font-bold text-3xl md:text-4xl ">sneakers</h1>
         </Link>
