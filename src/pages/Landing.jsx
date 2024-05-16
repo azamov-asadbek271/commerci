@@ -1,8 +1,11 @@
 import React from 'react'
+import CardSlider from '../components/CardSlider'
 
 function Landing() {
   return (
-    <div>Landing</div>
+    <div>
+      <CardSlider/>
+    </div>
   )
 }
 
