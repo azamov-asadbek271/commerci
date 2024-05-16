@@ -2,6 +2,7 @@ import { FiMenu } from "react-icons/fi";
 import NavLinks from "./NavLinks";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
 
 function Navbar() {
   return (
@@ -19,7 +20,7 @@ function Navbar() {
               <FiMenu className="text-2xl  mt-2 text-base-content" />
             </label>
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side ">
             <label
               htmlFor="my-drawer"
               aria-label="close sidebar"
@@ -27,23 +28,16 @@ function Navbar() {
             ></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content  ">
               {/* Sidebar content here */}
+              <label htmlFor="my-drawer" className="w-4">
+                <IoMdClose className="w-5 h-5" />
+              </label>
               <div className="mt-6">
                 <NavLinks />
               </div>
             </ul>
           </div>
         </div>
-        {/* <div className="dropdown lg:hidden flex">
-          <button tabIndex={0} role="button" className=" m-1">
-            <FiMenu className="text-2xl  mt-2 text-base-content" />
-          </button>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] mt-12 p-2 shadow bg-base-100 rounded-box w-52 "
-          >
-            <NavLinks />
-          </ul>
-        </div> */}
+
         <Link to="/">
           <h1 className="font-bold text-3xl md:text-4xl ">sneakers</h1>
         </Link>
@@ -113,4 +107,4 @@ function Navbar() {
   );
 }
 
-export default Navbar
+export default Navbar;
