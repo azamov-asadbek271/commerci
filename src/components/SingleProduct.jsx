@@ -2,13 +2,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment } from "../features/counter/CounterSlice";
 import { TiMinus } from "react-icons/ti";
 import { FaPlus } from "react-icons/fa6";
+import { FiShoppingCart } from "react-icons/fi";
 
 function SingleProduct() {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-    <div className="black-border py-20 w-[500px]">
+    <div className=" py-20 w-[500px]">
       <h3 className="capitalize  text-orange-600 font-medium text-xl">
         sneaker company
       </h3>
@@ -28,23 +29,29 @@ function SingleProduct() {
       </div>
       <p className="mt-2 line-through text-slate-400 font-bold">$250.00</p>
       <div className="mt-9 flex gap-5">
-        <div className="bg-slate-400 px-3 py-3 flex justify-between w-40 rounded-lg">
+        <div className="bg-slate-200 px-3 py-3 flex justify-between w-40 rounded-lg">
           <button
             aria-label="Decrement value"
-            onClick={() => dispatch(decrement())}
+            onClick={(e) => {
+                if (count >= 1) {
+                    dispatch(decrement())
+                }
+                
+            }}
           >
-            <TiMinus className="text-xl" />
+            <TiMinus className="text-xl text-orange-600" />
           </button>
-          <span className="text-xl">{count}</span>
+          <span className="text-lg font-bold">{count}</span>
 
           <button
             aria-label="Increment value"
             onClick={() => dispatch(increment())}
           >
-            <FaPlus className="text-xl" />
+            <FaPlus className="text-xl text-orange-600" />
           </button>
         </div>
-        <button>add to cart</button>
+        <button className="btn btn-wide bg-orange-400 text-white h-14">
+           <FiShoppingCart className="text-base"/> add to cart</button>
       </div>
     </div>
   );

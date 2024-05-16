@@ -5,7 +5,7 @@ import img3 from "../assets/image-product-3-thumbnail.jpg";
 import img4 from "../assets/image-product-4-thumbnail.jpg";
 function CardImg() {
   return (
-    <div className="p-5 black-border">
+    <div className="p-5">
       <div >
         <img
           className="w-[500px] h-[500px] rounded-xl object-cover"

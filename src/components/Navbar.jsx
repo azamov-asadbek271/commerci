@@ -3,8 +3,11 @@ import NavLinks from "./NavLinks";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
+import { useSelector } from "react-redux";
+import avatar from "../assets/image-avatar.png"
 
 function Navbar() {
+  const count = useSelector((state) => state.counter.value);
   return (
     <div
       className="navbar con-align py-8 border-b border-base-300 mb-9 flex
@@ -55,7 +58,7 @@ function Navbar() {
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
               <FiShoppingCart className="w-6 h-6" />
-              <span className="badge badge-sm indicator-item">0</span>
+              <span className="badge badge-sm indicator-item bg-orange-500 text-white">{count}</span>
             </div>
           </div>
           <div
@@ -79,7 +82,7 @@ function Navbar() {
           >
             <div className="w-10 rounded-full">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rYSbpmAJfi6YWeBjRtNZzsup0QEfvY2M2ZjDsTER_Q&s"
+                src={avatar}
                 alt=""
               />
             </div>
