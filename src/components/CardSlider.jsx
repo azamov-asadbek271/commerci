@@ -4,7 +4,7 @@ import SingleProduct from './SingleProduct'
 
 function CardSlider() {
   return (
-    <div className="flex gap-32">
+    <div className=" gap-32 lg:flex">
       <CardImg/>
       <SingleProduct/>
     </div>
