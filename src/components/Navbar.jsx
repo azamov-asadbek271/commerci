@@ -5,9 +5,13 @@ import { FiShoppingCart } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { useSelector } from "react-redux";
 import avatar from "../assets/image-avatar.png"
+import New from "./New";
 
 function Navbar() {
-  const count = useSelector((state) => state.counter.value);
+  const {value,cartItem} = useSelector((state) => state.counter);
+  
+ 
+
   return (
     <div
       className="navbar con-align py-8 border-b border-base-300 mb-9 flex
@@ -58,19 +62,22 @@ function Navbar() {
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
               <FiShoppingCart className="w-6 h-6" />
-              <span className="badge badge-sm indicator-item bg-orange-500 text-white">{count}</span>
+              <span className="badge badge-sm indicator-item bg-orange-500 text-white">
+                {value}
+              </span>
             </div>
           </div>
           <div
             tabIndex={0}
-            className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+            className="menu menu-lg dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-80 "
           >
-            <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
-              <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
-              </div>
+            <h4 className="font-bold mb-5">Cart</h4>
+            <hr />
+            <div>
+              {cartItem &&
+                cartItem.map((item) => {
+                  return <New key={item.image} cartItem={cartItem} />;
+                })}
             </div>
           </div>
         </div>
@@ -81,29 +88,22 @@ function Navbar() {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                src={avatar}
-                alt=""
-              />
+              <img src={avatar} alt="" />
             </div>
           </div>
-          <ul
+          <div
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-lg dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-80 "
           >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+            <h4 className="font-bold mb-5">Cart</h4>
+            <hr />
+            <div>
+              {cartItem &&
+                cartItem.map((item) => {
+                  return <New key={item.image} cartItem={cartItem} />;
+                })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,26 @@
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "../features/counter/CounterSlice";
+import { addItem, decrement, increment } from "../features/counter/CounterSlice";
 import { TiMinus } from "react-icons/ti";
 import { FaPlus } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
+import img1 from "../assets/image-product-1-thumbnail.jpg";
+
 
 function SingleProduct() {
+  const sum = 125;
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
+  const data = {
+    image:img1,
+    count,
+    summa: Number(sum) * count,
+    sum,
+  }
+const addData = () => {
+    dispatch(addItem({
+        product: data,
+    }))
+}
 
   return (
     <div className=" py-20 w-[500px]">
@@ -22,21 +36,20 @@ function SingleProduct() {
         nostrum a optio corrupti voluptas modi laboriosam
       </p>
       <div className="mt-9 flex gap-5 items-center">
-        <h2 className="font-bold text-2xl">$125.00</h2>
+        <h2 className="font-bold text-2xl">${sum}</h2>
         <p className="bg-orange-200 px-2 rounded text-orange-600 text-base">
           50%
         </p>
       </div>
-      <p className="mt-2 line-through text-slate-400 font-bold">$250.00</p>
+      <p className="mt-2 line-through text-slate-400 font-bold">$250</p>
       <div className="mt-9 flex gap-5">
         <div className="bg-slate-200 px-3 py-3 flex justify-between w-40 rounded-lg">
           <button
             aria-label="Decrement value"
-            onClick={(e) => {
-                if (count >= 1) {
-                    dispatch(decrement())
-                }
-                
+            onClick={() => {
+              if (count >= 1) {
+                dispatch(decrement());
+              }
             }}
           >
             <TiMinus className="text-xl text-orange-600" />
@@ -50,8 +63,12 @@ function SingleProduct() {
             <FaPlus className="text-xl text-orange-600" />
           </button>
         </div>
-        <button className="btn btn-wide bg-orange-400 text-white h-14">
-           <FiShoppingCart className="text-base"/> add to cart</button>
+        <button
+          className="btn btn-wide bg-orange-400 text-white h-14"
+          onClick={addData}
+        >
+          <FiShoppingCart className="text-base" /> add to cart
+        </button>
       </div>
     </div>
   );
