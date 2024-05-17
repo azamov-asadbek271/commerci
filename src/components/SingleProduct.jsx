@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, decrement, increment } from "../features/counter/CounterSlice";
+import { addItem, decrement, editItem, increment } from "../features/counter/CounterSlice";
 import { TiMinus } from "react-icons/ti";
 import { FaPlus } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
@@ -16,11 +16,14 @@ function SingleProduct() {
     summa: Number(sum) * count,
     sum,
   }
+   
 const addData = () => {
     dispatch(addItem({
         product: data,
     }))
+    
 }
+
 
   return (
     <div className=" py-20 w-[500px]">

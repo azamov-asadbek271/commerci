@@ -33,6 +33,13 @@ export const counterSlice = createSlice({
 
       localStorage.setItem("cart", JSON.stringify(state));
     },
+    // editItem:(state,{payload}) => {
+    //     const { product } = payload;
+    //   const item = state.cartItem.find((i) => (i.image = product.image));
+    //   if(item) {
+    //     item.summa -= product.sum
+    //   }
+    // },
     removeItem: (state, { payload }) => {
       const { image } = payload;
       const product = state.cartItem.find((i) => i.image === image);
@@ -43,6 +50,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount,addItem,removeItem,ItemNull } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount,addItem,removeItem,ItemNull,editItem } = counterSlice.actions;
 
 export default counterSlice.reducer;
