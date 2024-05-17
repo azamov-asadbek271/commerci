@@ -97,6 +97,7 @@ function Navbar() {
           >
             <h4 className="font-bold mb-5">Cart</h4>
             <hr />
+           
             <div>
               {cartItem &&
                 cartItem.map((item) => {

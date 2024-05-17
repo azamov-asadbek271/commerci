@@ -1,11 +1,12 @@
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { removeItem } from "../features/counter/CounterSlice";
+import { ItemNull, removeItem } from "../features/counter/CounterSlice";
 function New({ cartItem }) {
     const dispatch = useDispatch()
   const { image, sum, summa, count } = cartItem[0];
 const RemoveItemTheCart = () => {
   dispatch(removeItem({ image }));
+  dispatch(ItemNull())
 };
   return (
     <div className="mt-6 ">
